@@ -1,6 +1,7 @@
 # 🧩 Algorithm Study 
 
 알고리즘 공부를 위한 스터디입니다.
+
 2025.01.31 ~ 02.27 (4W)
 
 <br/>
@@ -60,6 +61,7 @@ Pull Request를 위한 가벼운 가이드를 제공합니다.
 2. Fork한 저장소에서 `Code` 버튼을 눌러 clone 주소를 복사한 후, 원하는 로컬 위치에 `git clone`한다.
 ```
 git clone https://github.com/......
+cd Feb-Algorithm
 ```
 
 3. pull을 편리하게 하기 위해 원본 저장소를 등록한다.
