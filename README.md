@@ -41,8 +41,8 @@
 ### 📍 Convention Rule
 - **Commit Message**
 
-  + `[ Wn / PART n] 자유기술`
-  + ex) [ W2 / PART 2] 0000 문제 풀이
+  + `[Wn / PART n] 자유기술`
+  + ex) [W2 / PART 2] 0000 문제 풀이
 
 - **Pull Request**
 
@@ -53,10 +53,10 @@
 
 ## ⚙️ Guide
 
-Pull Request를 위한 가벼운 가이드를 제공합니다.
+Pull Request를 위한 가벼운 가이드를 제공합니다. <br/> 반드시 정답은 아니며, 다른 방법을 사용해도 괜찮습니다.
 
 
-1. 오른쪽 상단의 `Fork`버튼을 눌러 개인 저장소로 복사한다.
+1. 오른쪽 상단의 `Fork` 버튼을 눌러 개인 저장소로 복사한다.
 
 2. Fork한 저장소에서 `Code` 버튼을 눌러 clone 주소를 복사한 후, 원하는 로컬 위치에 `git clone`한다.
 ```
@@ -69,21 +69,28 @@ cd Feb-Algorithm
 git remote add upstream https://github.com/8weekAlgorithm/Feb-Algorithm.git
 ```
 
-4. commit할 branch를 생성하고 이동한다.
+4. commit할 branch를 생성하고 이동한다. `<branch name>`은 자유롭게 설정할 수 있다.
 ```
 git branch <branch name>
 git checkout <branch name>
 ```
 
-5. 작업 후 개인 저장소에 commit 및 push한다.
+5. 스터디 후 변경 사항이 생기면, 개인 저장소에 commit 및 push한다.
 ```
 git add .
-git commit -m "[ Wn / PART n] 자유기술"
+git commit -m "[Wn / PART n] 자유기술"
 git push origin <branch name>
 ```
-6. push 후 본인의 저장소로 돌아오면 `Pull Request` 버튼이 활성화된다. 해당 버튼을 클릭해 Pull Request를 진행한다. 
+6. push 후 본인의 저장소 페이지로 돌아오면 `Pull Request` 버튼이 활성화된다. 해당 버튼을 클릭해 PR을 진행한다. 
 
-7.  Pull Request가 merge된 후, 원본 저장소의 변경사항을 가져와 로컬 브랜치를 업데이트한다.
+<br/>
+
+### 원본 저장소의 변경 사항을 가져오는 법
+
+Pull Request가 merge된 후, 원본 저장소의 변경사항을 가져와 업데이트하는 방법은 다음과 같다.
 ```
-git pull upstream main
+git fetch upstream
+git rebase upstream/main
 ```
+`fetch`로 upstream의 최신 변경 사항을 가져오고, `rebase`로 변경 사항을 정리한다.
+- `rebase`를 사용하면 커밋 히스토리가 남지 않아 깔끔하게 관리할 수 있지만, 충돌 발생 시 해결하기 어려울 수 있다. 협업에선 `merge` 사용이 권장된다.
