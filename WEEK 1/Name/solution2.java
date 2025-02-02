@@ -1,13 +1,30 @@
-// 문제: 백준 00000번 문제제목
-// 링크: https://www.acmicpc.net/problem/00000
-// 시간: 000ms
+// 문제: 백준 89828번 문제제목
+// 링크: https://www.acmicpc.net/problem/11279
+// 시간: 864ms
 
-public class Main {
-	public static void main(String[] args) {
+import java.io.*;
+import java.util.*;
 
-        // 이곳에 풀이를 작성합니다.
-        // 다른 사람을 위해 주석을 꼭 달아주세요.
-        // 실패했다면 실패한 이유도 함께 적어주세요.
+public class solution2 {
+	public static void main(String[] args) throws IOException {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		StringBuilder sb = new StringBuilder();
 
-    }
+		PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+
+		for (int i = 0; i < N; i++) {
+			int com = sc.nextInt();
+			if (com > 0) {
+				pq.add(com);
+			} else if (com == 0) {
+				Integer out = pq.poll();
+				sb.append(out == null ? 0 : out).append("\n");
+			}
+		}
+		System.out.println(sb.toString());
+	}
+	/* 문제 분석
+	 * 최대 힙 -> 우선순위 큐 사용하되 Collections.reverseOrder로 최소 힙을 최대 힙으로 바꿔줘야 됨
+	*/
 }
