@@ -2,7 +2,7 @@
 
 ## 📖 목차
 
-[1. 스택(Stack)](#스택-stack)  
+[1. 스택(Stack)](#stack)  
 
 [2. 큐(Queue)](#큐-queue)  
 
@@ -40,7 +40,7 @@ Vector 클래스는 동기화 처리가 되어있어 성능↓ (불필요한 성
 
 ---
 
-## 1. 스택(Stack)
+## 1. Stack
 
 - 스택 구현(ArrayDeque 인스턴스 생성)
 
