@@ -2,13 +2,13 @@
 
 ## 📖 목차
 
-[1. 스택(Stack)](#스택stack)  
+[1. 스택(Stack)](#스택-stack)  
 
-[2. 큐(Queue)](#큐queue)  
+[2. 큐(Queue)](#큐-queue)  
 
-[3. 우선순위 큐(Priority Queue)](#우선순위-큐priority-queue)  
+[3. 우선순위 큐(Priority Queue)](#우선순위-큐-priority-queue)  
 
-[4. 덱(Deque)](#덱deque)  
+[4. 덱(Deque)](#덱-deque)  
 
 [5. 정리: 시간 복잡도 비교표](#정리-시간-복잡도-비교표)  
 
