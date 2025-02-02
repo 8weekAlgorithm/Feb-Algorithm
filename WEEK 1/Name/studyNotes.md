@@ -156,20 +156,7 @@ System.out.println(linkedDeque.pollLast());   // 2
 | 조회 (`peek`)       | O(1)              | O(1)        | O(1)                     | O(1)         |
 | 검색 (`contains`)   | O(N)              | O(N)        | O(N)                     | O(N)         |
 | 비어있는지 확인 (`isEmpty`) | O(1)      | O(1)        | O(1)                     | O(1)         |
-
-
-
-이 문서는 GitHub에서 자료구조 개념을 정리하고 Java 코드 예제와 함께 쉽게 학습할 수 있도록 작성되었습니다.
-
-
-### 💡TIP!
-
-- 문법은 [이곳](https://gist.github.com/ihoneymon/652be052a0727ad59601)에 잘 정리되어 있습니다.
-
-- `VScode`를 사용하면 Markdown 프리뷰를 확인하며 작성할 수 있습니다.
-
-  + [[VSCode] 마크다운 미리보기](https://detail-from-a-to-z.tistory.com/36)
-  + 단축키: `Ctrl + Shift + V` 또는 `Ctrl + K V`
+---
 
 
 
