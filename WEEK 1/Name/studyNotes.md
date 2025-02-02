@@ -8,7 +8,7 @@
 
 [3. 우선순위 큐(Priority Queue)](https://www.notion.so/3-Priority-Queue-18ebdd83228c80f1bf30fcf2be38b744?pvs=21) 
 
-[4. 덱(Deque)](https://www.notion.so/4-Deque-18ebdd83228c80e4b404cdbfcbea9b33?pvs=21) 
+[4. 덱(Deque)](#덱(Deque)) 
 
 [5. **정리: 시간 복잡도 비교표**](https://www.notion.so/5-18ebdd83228c806d8f79c18148ec8470?pvs=21) 
 
