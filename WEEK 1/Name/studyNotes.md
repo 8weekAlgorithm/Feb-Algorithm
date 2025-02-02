@@ -2,19 +2,19 @@
 
 ## 📖 목차
 
-[1. 스택(Stack)](#스택(Stack)) 
+[1. 스택(Stack)](#스택stack)  
 
-[2. 큐(Queue)](https://www.notion.so/2-Queue-18ebdd83228c8043a6d0e07d51b7be3f?pvs=21) 
+[2. 큐(Queue)](#큐queue)  
 
-[3. 우선순위 큐(Priority Queue)](https://www.notion.so/3-Priority-Queue-18ebdd83228c80f1bf30fcf2be38b744?pvs=21) 
+[3. 우선순위 큐(Priority Queue)](#우선순위-큐priority-queue)  
 
-[4. 덱(Deque)](#덱(Deque)) 
+[4. 덱(Deque)](#덱deque)  
 
-[5. **정리: 시간 복잡도 비교표**](https://www.notion.so/5-18ebdd83228c806d8f79c18148ec8470?pvs=21) 
+[5. 정리: 시간 복잡도 비교표](#정리-시간-복잡도-비교표)  
 
-[**6. 연결 리스트(Linked List) 기반 vs 힙(Heap) 기반 차이점**](https://www.notion.so/6-Linked-List-vs-Heap-18ebdd83228c80f4a6c0eafdc85252ed?pvs=21) 
+[6. 연결 리스트(Linked List) 기반 vs 힙(Heap) 기반 차이점](#연결-리스트linked-list-기반-vs-힙heap-기반-차이점)  
 
-[7. 완전 이진 트리(Complete Binary Tree)란?](https://www.notion.so/7-Complete-Binary-Tree-18ebdd83228c8079b555e45c6eebf61b?pvs=21) 
+[7. 완전 이진 트리(Complete Binary Tree)란?](#완전-이진-트리complete-binary-tree란)  
 
 ---
 
