@@ -40,4 +40,11 @@
 
  ### 📂 응용 문제
 
-- *02/02 추가 예정*
+- 스택, 큐
+  + 실버3 | [백준 1966](https://www.acmicpc.net/problem/1966)
+  + 실버2 | [백준 1874](https://www.acmicpc.net/problem/1874)
+
+- 우선순위 큐
+  + 실버1 | [백준 15903](https://www.acmicpc.net/problem/15903)
+  + 골드4 | [백준 1715](https://www.acmicpc.net/problem/1715)
+
