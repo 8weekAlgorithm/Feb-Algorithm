@@ -2,7 +2,7 @@
 
 ## 📖 목차
 
-[1. 스택(Stack)](#1.-스택(Stack)) 
+[1. 스택(Stack)](#스택(Stack)) 
 
 [2. 큐(Queue)](https://www.notion.so/2-Queue-18ebdd83228c8043a6d0e07d51b7be3f?pvs=21) 
 
@@ -22,7 +22,8 @@
 
 - Stack 클래스는 Vector를 상속받아 구현되어 있음
 
-![image.png](attachment:d2c5a109-5cf6-44b2-ad6e-fcfeb7be224f:image.png)
+![image](https://github.com/user-attachments/assets/e1d7573d-fc00-4b58-872d-3ffbce475532)
+
 
 Vector 클래스는 동기화 처리가 되어있어 성능↓ (불필요한 성능 오버헤드 발생)
 
@@ -30,7 +31,8 @@ Vector 클래스는 동기화 처리가 되어있어 성능↓ (불필요한 성
 
 - Queue는 인터페이스이며 직접 구현한 클래스가 없음
 
-![image.png](attachment:c49939f7-dfdc-4270-8a6f-a89dcb3d56c1:image.png)
+![image](https://github.com/user-attachments/assets/9357047c-e25a-4841-822a-016c58945c00)
+
 
 더 나은 대체 클래스인 ArrayDeque를 사용함
 
