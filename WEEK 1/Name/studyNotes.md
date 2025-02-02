@@ -8,7 +8,7 @@
 
 [3. 우선순위 큐(Priority Queue)](#우선순위-큐-priority-queue)  
 
-[4. 덱(Deque)](#덱-deque)  
+[4. 덱(Deque)](#deque)  
 
 [5. 정리: 시간 복잡도 비교표](#정리-시간-복잡도-비교표)  
 
@@ -277,7 +277,7 @@ public class CustomPriorityQueue {
 
 ---
 
-## 4. 덱(Deque)
+## 4. Deque
 
 ### 🔹 **Deque의 특징**
 
