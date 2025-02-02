@@ -1,22 +1,5 @@
 # 1주차: 스택, 큐, 우선순위 큐
 
-## 📖 목차
-
-[1. 스택(Stack)](#stack)  
-
-[2. 큐(Queue)](#큐-queue)  
-
-[3. 우선순위 큐(Priority Queue)](#우선순위-큐-priority-queue)  
-
-[4. 덱(Deque)](#deque)  
-
-[5. 정리: 시간 복잡도 비교표](#정리-시간-복잡도-비교표)  
-
-[6. 연결 리스트(Linked List) 기반 vs 힙(Heap) 기반 차이점](#연결-리스트linked-list-기반-vs-힙heap-기반-차이점)  
-
-[7. 완전 이진 트리(Complete Binary Tree)란?](#완전-이진-트리complete-binary-tree란)  
-
----
 
 ### 📌 Stack과 Queue 클래스를 이용하지 않는 이유?
 
