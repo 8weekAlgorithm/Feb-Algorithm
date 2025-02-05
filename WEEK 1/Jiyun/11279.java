@@ -6,7 +6,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader("src/input.txt"));
 
-        // 최대 힙 생성
+    	// 최대 힙 생성
 		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 		int n = Integer.parseInt(br.readLine());
 

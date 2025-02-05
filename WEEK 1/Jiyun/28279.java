@@ -11,7 +11,7 @@ public class Main {
 
 		// 명령의 수 n만큼 실행
 		for (int i = 0; i < n; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
+			StringTokenizer st = new StringTokenizer(br.readLine());
 			int command = Integer.parseInt(st.nextToken());
 			
 			switch (command) {
