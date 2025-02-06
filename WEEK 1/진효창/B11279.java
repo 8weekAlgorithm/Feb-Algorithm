@@ -6,12 +6,11 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-public class solution2 {
+public class B11279 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		StringBuilder sb = new StringBuilder();//시간초과가 있을 수 있으므로
 		int n = sc.nextInt();
-
 		PriorityQueue<Integer> heap = new PriorityQueue<>(Collections.reverseOrder());//힙=>PriorityQueue로 생성
         //collections.reverseOrder=>역순으로 정렬할때 쓰는 매서드
 
