@@ -2,7 +2,7 @@
 // 링크: https://www.acmicpc.net/problem/00000
 // 시간: 000ms
 
-public class Main {
+public class solution3 {
 	public static void main(String[] args) {
 
         // 이곳에 풀이를 작성합니다.

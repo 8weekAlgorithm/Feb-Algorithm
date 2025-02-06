@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-public class solution2 {
+public class B11279 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		StringBuilder sb = new StringBuilder();//시간초과가 있을 수 있으므로
