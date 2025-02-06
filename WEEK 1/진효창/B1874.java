@@ -31,6 +31,7 @@ public class B1874 {
                 System.out.println("NO");
                 return;//if문 종료
             }
+            
         }
 
         System.out.println(result);

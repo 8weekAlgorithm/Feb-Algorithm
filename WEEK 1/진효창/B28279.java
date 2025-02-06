@@ -12,7 +12,6 @@ public class B28279{
 		StringBuilder sb = new StringBuilder();//시간초과 문제로 한번에 출력하는 stringbulider사용
 		int n = sc.nextInt();
 		sc.nextLine();//개행처리
-		
 		Deque<Integer> deque = new LinkedList<Integer>();//deque 생성
 		for(int i=0;i<n;i++) {
 			String str = sc.nextLine();

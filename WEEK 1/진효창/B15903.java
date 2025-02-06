@@ -26,6 +26,7 @@ public class B15903 {
         int ans = 0;
         while (!card.isEmpty()) {
             ans += card.poll();
+            
         }
         System.out.println(ans);
     }
