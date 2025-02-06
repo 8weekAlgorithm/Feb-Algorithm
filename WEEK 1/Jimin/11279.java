@@ -1,4 +1,4 @@
-// ¹éÁØ 11279¹ø ÃÖ´ë Èü (½Ç¹ö2)
+// ë°±ì¤€ 11279ë²ˆ ìµœëŒ€ í™ (ì‹¤ë²„2)
 
 import java.io.*;
 import java.util.*;
@@ -8,20 +8,20 @@ public class MaxHeap {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer st;
+//		StringTokenizer st;
 		
-		// PriorityQueue´Â ±âº»ÀûÀ¸·Î ÀÛÀº ¼ıÀÚ°¡ ¸ÕÀú ³ª¿À´Â ÃÖ¼Ò Èü ¹æ½Ä
-		// ¸¸¾à Å« ¼ıÀÚ°¡ ¸ÕÀú ³ª¿À°Ô ÇÏ°í ½Í´Ù¸é, Collections.reverseOrder()¸¦ »ç¿ë
+		// PriorityQueueëŠ” ê¸°ë³¸ì ìœ¼ë¡œ ì‘ì€ ìˆ«ìê°€ ë¨¼ì € ë‚˜ì˜¤ëŠ” ìµœì†Œ í™ ë°©ì‹
+		// ë§Œì•½ í° ìˆ«ìê°€ ë¨¼ì € ë‚˜ì˜¤ê²Œ í•˜ê³  ì‹¶ë‹¤ë©´, Collections.reverseOrder()ë¥¼ ì‚¬ìš©
 		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 		
 		int N = Integer.parseInt(br.readLine());
 		
 		for (int i=0; i<N; i++) {
 			int x = Integer.parseInt(br.readLine());
-			if (x > 0) { // ¸¸¾à, x°¡ ÀÚ¿¬¼ö¶ó¸é
-				maxHeap.add(x); // ¹è¿­¿¡ x °ª Ãß°¡
-			} else if (x == 0) { // ¸¸¾à, x°¡ 0ÀÌ¶ó¸é
-				// ¹è¿­¿¡¼­ °¡Àå Å« °ªÀ» Ãâ·ÂÇÏ°í ±× °ªÀ» ¹è¿­¿¡¼­ Á¦°Å
+			if (x > 0) { // ë§Œì•½, xê°€ ìì—°ìˆ˜ë¼ë©´
+				maxHeap.add(x); // ë°°ì—´ì— x ê°’ ì¶”ê°€
+			} else if (x == 0) { // ë§Œì•½, xê°€ 0ì´ë¼ë©´
+				// ë°°ì—´ì—ì„œ ê°€ì¥ í° ê°’ì„ ì¶œë ¥í•˜ê³  ê·¸ ê°’ì„ ë°°ì—´ì—ì„œ ì œê±°
 				bw.write(maxHeap.isEmpty() ? "0" : String.valueOf(maxHeap.poll())); 
 				bw.newLine();
 			}

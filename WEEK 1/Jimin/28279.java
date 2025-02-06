@@ -1,4 +1,4 @@
-// ¹éÁØ 28279¹ø µ¦ 2 (½Ç¹ö2)
+// ë°±ì¤€ 28279ë²ˆ ë± 2 (ì‹¤ë²„2)
 
 import java.io.*;
 import java.util.*;
@@ -6,64 +6,64 @@ import java.util.*;
 public class Deque2 {
 	public static void main(String[] args) throws IOException {
 		
-		// Á¤¼ö·Î ÀúÀåÇÏ´Â µ¦
+		// ì •ìˆ˜ë¡œ ì €ì¥í•˜ëŠ” ë±
 		Deque<Integer> deque = new LinkedList<>();
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); 
 		StringTokenizer st;
 		
-        // ¸í·ÉÀÇ ¼ö ÀÔ·Â
+        // ëª…ë ¹ì˜ ìˆ˜ ì…ë ¥
 		int N = Integer.parseInt(br.readLine());
         
-		// ¸í·ÉÀÇ ¼ö¸¸Å­ ÀÔ·Â ¹Ş±â
+		// ëª…ë ¹ì˜ ìˆ˜ë§Œí¼ ì…ë ¥ ë°›ê¸°
 		for (int i=0; i<N; i++) {
 			
-			// ¸í·ÉÀÇ Á¾·ù ÀÔ·Â ¹Ş±â
+			// ëª…ë ¹ì˜ ì¢…ë¥˜ ì…ë ¥ ë°›ê¸°
 			st = new StringTokenizer(br.readLine());
 
 			switch (Integer.parseInt(st.nextToken())) {
-			// 1. Á¤¼ö X¸¦ µ¦ÀÇ ¾Õ¿¡ ³Ö´Â´Ù.
+			// 1. ì •ìˆ˜ Xë¥¼ ë±ì˜ ì•ì— ë„£ëŠ”ë‹¤.
 			case 1: 
 				deque.addFirst(Integer.parseInt(st.nextToken()));
 				break;
 				
-			// 2. Á¤¼ö X¸¦ µ¦ÀÇ µÚ¿¡ ³Ö´Â´Ù.	
+			// 2. ì •ìˆ˜ Xë¥¼ ë±ì˜ ë’¤ì— ë„£ëŠ”ë‹¤.	
 			case 2: 
 				deque.addLast(Integer.parseInt(st.nextToken()));
 				break;
 				
-			// 3. µ¦¿¡ Á¤¼ö°¡ ÀÖ´Ù¸é ¸Ç ¾ÕÀÇ Á¤¼ö¸¦ »©°í Ãâ·ÂÇÑ´Ù. ¾ø´Ù¸é -1À» ´ë½Å Ãâ·ÂÇÑ´Ù.	
+			// 3. ë±ì— ì •ìˆ˜ê°€ ìˆë‹¤ë©´ ë§¨ ì•ì˜ ì •ìˆ˜ë¥¼ ë¹¼ê³  ì¶œë ¥í•œë‹¤. ì—†ë‹¤ë©´ -1ì„ ëŒ€ì‹  ì¶œë ¥í•œë‹¤.	
 			case 3: 
 				bw.write(!deque.isEmpty() ? String.valueOf(deque.pollFirst()) : "-1");
 				bw.newLine();
 				break;
 				
-			// 4. µ¦¿¡ Á¤¼ö°¡ ÀÖ´Ù¸é ¸Ç µÚÀÇ Á¤¼ö¸¦ »©°í Ãâ·ÂÇÑ´Ù. ¾ø´Ù¸é -1À» ´ë½Å Ãâ·ÂÇÑ´Ù.	
+			// 4. ë±ì— ì •ìˆ˜ê°€ ìˆë‹¤ë©´ ë§¨ ë’¤ì˜ ì •ìˆ˜ë¥¼ ë¹¼ê³  ì¶œë ¥í•œë‹¤. ì—†ë‹¤ë©´ -1ì„ ëŒ€ì‹  ì¶œë ¥í•œë‹¤.	
 			case 4: 
 				bw.write(!deque.isEmpty() ? String.valueOf(deque.pollLast()) : "-1");
 				bw.newLine();
 				break;
 				
-			// 5. µ¦¿¡ µé¾îÀÖ´Â Á¤¼öÀÇ °³¼ö¸¦ Ãâ·ÂÇÑ´Ù.	
+			// 5. ë±ì— ë“¤ì–´ìˆëŠ” ì •ìˆ˜ì˜ ê°œìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤.	
 			case 5: 
 				bw.write(String.valueOf(deque.size()));
 				bw.newLine();
 				break;
 				
-			// 6. µ¦ÀÌ ºñ¾îÀÖÀ¸¸é 1, ¾Æ´Ï¸é 0À» Ãâ·ÂÇÑ´Ù.
+			// 6. ë±ì´ ë¹„ì–´ìˆìœ¼ë©´ 1, ì•„ë‹ˆë©´ 0ì„ ì¶œë ¥í•œë‹¤.
 			case 6: 
 				bw.write(deque.isEmpty() ? "1" : "0");
 				bw.newLine();
 				break;
 				
-			// 7. µ¦¿¡ Á¤¼ö°¡ ÀÖ´Ù¸é ¸Ç ¾ÕÀÇ Á¤¼ö¸¦ Ãâ·ÂÇÑ´Ù. ¾ø´Ù¸é -1À» ´ë½Å Ãâ·ÂÇÑ´Ù.
+			// 7. ë±ì— ì •ìˆ˜ê°€ ìˆë‹¤ë©´ ë§¨ ì•ì˜ ì •ìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤. ì—†ë‹¤ë©´ -1ì„ ëŒ€ì‹  ì¶œë ¥í•œë‹¤.
 			case 7: 
 				bw.write(!deque.isEmpty() ? String.valueOf(deque.peekFirst()) : "-1");
 				bw.newLine();
 				break;
 				
-			// 8. µ¦¿¡ Á¤¼ö°¡ ÀÖ´Ù¸é ¸Ç µÚÀÇ Á¤¼ö¸¦ Ãâ·ÂÇÑ´Ù. ¾ø´Ù¸é -1À» ´ë½Å Ãâ·ÂÇÑ´Ù.	
+			// 8. ë±ì— ì •ìˆ˜ê°€ ìˆë‹¤ë©´ ë§¨ ë’¤ì˜ ì •ìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤. ì—†ë‹¤ë©´ -1ì„ ëŒ€ì‹  ì¶œë ¥í•œë‹¤.	
 			case 8: 
 				bw.write(!deque.isEmpty() ? String.valueOf(deque.peekLast()) : "-1");
 				bw.newLine();
@@ -71,7 +71,7 @@ public class Deque2 {
 			}
 		}
 		br.close();
-		bw.flush(); // ³²ÀÌÀÖ´Â µ¥ÀÌÅÍ ¸ğµÎ Ãâ·Â
+		bw.flush(); // ë‚¨ì´ìˆëŠ” ë°ì´í„° ëª¨ë‘ ì¶œë ¥
 		bw.close();
 	}
 }
