@@ -1,270 +1,410 @@
-# 큐, 스택, 힙, 덱
-
-## **🔹 큐 (Queue) - FIFO (First In First Out)**
-
-### **🟢 큐의 개념**
-- **선입선출(FIFO, First In First Out)**
-  - 먼저 들어온 요소가 먼저 나감
-  - **예시**
-    ```
-    입력: 1 → 2 → 3
-    출력: 1 → 2 → 3
-    ```
-
-- **대표적인 활용 사례**:
-  - 🚀 **BFS (너비 우선 탐색)**
-  - 🖨 **프린터 작업 대기열**
-  - ⏳ **프로세스 스케줄링**
-  - 📡 **데이터 버퍼링**
-  - 🎮 **게임 대기열**
-
+# **정렬 이분탐색**
 ---
+## 정렬
 
-## **🔹 큐의 생성**
-자바에서 `Queue` 인터페이스는 **`LinkedList`** 또는 **`ArrayDeque`** 로 구현할 수 있음.
+## **1. 버블 정렬 (Bubble Sort)**
+- **인접한 두 요소를 비교하며 큰 값을 오른쪽으로 이동**
+- **시간 복잡도:** O(N²)
+- **장점:** 구현이 간단함
+- **단점:** 느림, 거의 정렬된 상태에서도 비효율적  
 
-```java
-// LinkedList를 사용하여 큐 생성
-Queue<Integer> queue = new LinkedList<>();
-
-// ArrayDeque를 사용하여 큐 생성 (더 빠른 성능)
-Queue<Integer> queue2 = new ArrayDeque<>();
+#### 📌 **버블 정렬 과정 예시**
+```
+입력: 3 → 2 → 5 → 8 → 1
+과정:
+1. [3, 2, 5, 8, 1] → 2와 3 비교 (교환)
+2. [2, 3, 5, 8, 1] → 3과 5 비교 (유지)
+3. [2, 3, 5, 8, 1] → 5와 8 비교 (유지)
+4. [2, 3, 5, 1, 8] → 8과 1 비교 (교환)
+...
+결과: 1 → 2 → 3 → 5 → 8
 ```
 
----
-
-## **🔹 큐의 주요 메서드**
-| 메서드       | 설명                                      | 메서드       | 설명                                      |
-|-------------|-----------------------------------------|-------------|-----------------------------------------|
-| `add(x)`    | 큐에 x 삽입 (`Exception` 발생 가능)      | `offer(x)`   | 큐에 x 삽입 (`false` 반환 가능)         |
-| `remove()`  | 첫 번째 요소 제거 (`Exception` 발생)     | `poll()`     | 첫 번째 요소 제거 후 반환 (`null` 가능) |
-| `clear()`   | 큐 초기화                                | `peek()`     | 첫 번째 요소 조회 (삭제하지 않음)       |
-| `isEmpty()` | 큐가 비어 있는지 확인                    | `size()`     | 큐의 크기 반환                          |
-
----
-
-## **🔹 스택 (Stack) - LIFO (Last In First Out)**
-
-### **🟠 스택의 개념**
-- **후입선출(LIFO, Last In First Out)**
-  - 나중에 들어온 요소가 먼저 나감
-  - **예시**
-    ```
-    입력: 1 → 2 → 3
-    출력: 3 → 2 → 1
-    ```
-
-- **대표적인 활용 사례**:
-  - 🌲 **DFS (깊이 우선 탐색)**
-  - 🔄 **재귀 함수 호출 관리**
-  - 🔤 **문자열 역순 처리**
-  - 🧮 **수식 계산(후위 표기법 등)**
-  - 🔙 **이전 페이지로 가기**
-  - ⏪ **되돌리기(ctrl+z)**
-
----
-
-### **🔹 스택의 생성**
-자바에서 `Stack` 클래스를 사용하여 구현 가능.
-
+#### 📌 **버블 정렬 Java 코드**
 ```java
-Stack<Integer> stack = new Stack<>();
-```
+import java.util.Arrays;
 
----
-
-### **🔹 스택의 주요 메서드**
-| 메서드       | 설명                                      |
-|-------------|-----------------------------------------|
-| `push(x)`    | 스택에 x 삽입                           |
-| `pop()`      | 스택에서 최상단 요소 제거 후 반환        |
-| `peek()`     | 스택의 최상단 요소 조회 (삭제하지 않음)  |
-| `isEmpty()`  | 스택이 비어 있는지 확인                 |
-| `size()`     | 스택의 크기 반환                         |
-
----
-
-## **🔹 힙 (Heap)**
-### **🔵 힙의 개념**
-- **우선순위 큐(Priority Queue) 기반의 자료구조**
-- **최소 힙(Min Heap)**: 부모 노드가 자식 노드보다 항상 작음 → 루트 노드가 최소값
-- **최대 힙(Max Heap)**: 부모 노드가 자식 노드보다 항상 큼 → 루트 노드가 최대값
-
----
-
-### **🔹 힙의 생성**
-자바에서 `PriorityQueue` 클래스를 사용하여 힙 구현 가능.
-
-```java
-// 최소 힙 (기본)
-PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-
-// 최대 힙 (reverseOrder 사용)
-PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-```
-
----
-
-### **🔹 힙의 주요 메서드**
-| 메서드       | 설명                                      |
-|-------------|-----------------------------------------|
-| `add(x)`    | 힙에 x 삽입                              |
-| `poll()`    | 최솟값(또는 최댓값) 제거 후 반환           |
-| `peek()`    | 최솟값(또는 최댓값) 조회 (삭제하지 않음)   |
-| `isEmpty()` | 힙이 비어 있는지 확인                     |
-| `size()`    | 힙의 크기 반환                             |
-
----
-
-## **🔹 덱 (Deque - 양방향 큐)**
-### **🟣 덱의 개념**
-- **양방향으로 삽입/삭제가 가능한 자료구조**
-- **앞뒤에서 삽입/삭제가 모두 가능**
-
----
-
-### **🔹 덱의 생성**
-자바에서 `Deque` 인터페이스를 `ArrayDeque` 또는 `LinkedList`로 구현 가능.
-
-```java
-// ArrayDeque 사용
-Deque<Integer> deque = new ArrayDeque<>();
-
-// LinkedList 사용
-Deque<Integer> deque2 = new LinkedList<>();
-```
-
----
-
-### **🔹 덱의 주요 메서드**
-| 메서드        | 설명                                     | 메서드        | 설명                                     |
-|--------------|--------------------------------------|--------------|--------------------------------------|
-| `addFirst(x)` | 앞쪽에 x 삽입                       | `addLast(x)`  | 뒤쪽에 x 삽입                        |
-| `pollFirst()` | 앞쪽 요소 제거 후 반환              | `pollLast()`  | 뒤쪽 요소 제거 후 반환               |
-| `peekFirst()` | 앞쪽 요소 조회 (삭제 X)             | `peekLast()`  | 뒤쪽 요소 조회 (삭제 X)              |
-| `isEmpty()`   | 덱이 비어 있는지 확인               | `size()`      | 덱의 크기 반환                        |
-
----
-
-📌 **자료구조 선택 기준**
-✔ **순차적으로 처리할 때 → 🟢 `Queue` 추천**  
-✔ **마지막에 들어온 데이터를 먼저 처리 → 🟠 `Stack` 추천**  
-✔ **우선순위 처리가 필요할 때 → 🔵 `Heap` 추천**  
-✔ **양방향 삽입/삭제가 필요할 때 → 🟣 `Deque` 추천**  
-
-## **📌 ArrayDeque vs LinkedList 비교**
-ArrayDeque와 LinkedList는 모두 **큐(Queue)와 덱(Deque)**의 기능을 수행할 수 있지만, 내부 구현 방식이 다르며 성능 차이가 존재
-
----
-
-## **📌 ArrayDeque<E> (배열 기반 덱)**
-> **배열(Array)로 구현된 덱(Deque)**
-- ArrayDeque는 **동적 크기 배열**을 사용하여 큐 및 스택 연산을 수행합니다.
-- 요소가 추가될 때 **배열 크기를 자동으로 확장**합니다.
-
-### **✅ 주요 특징**
-✔ **연속적인 메모리 블록을 사용하여 빠른 접근 속도(O(1))**  
-✔ **크기가 자동으로 증가하는 배열 기반 구조**  
-✔ **중간 삽입/삭제가 O(N), 하지만 앞뒤 추가/삭제가 O(1)**  
-✔ **null을 허용하지 않음** (LinkedList는 null 허용)  
-✔ **메모리 사용량이 적고 캐시 효율이 좋음**
-
----
-
-## **📌 LinkedList<E> (연결 리스트 기반 덱)**
-> **이중 연결 리스트(Doubly Linked List)로 구현된 덱(Deque)**
-- LinkedList는 **각 요소(Node)가 이전 및 다음 요소를 참조하는 구조**를 가짐.
-
-### **✅ 주요 특징**
-✔ **앞뒤 삽입/삭제가 O(1) (노드 포인터만 변경)**  
-✔ **중간 삽입/삭제가 O(1)~O(N), 위치를 찾는 데 시간이 걸림**  
-✔ **메모리 사용량이 많음 (노드당 추가적인 참조 값이 필요)**  
-✔ **요소 접근 속도가 느림 (O(N), 선형 탐색 필요)**  
-✔ **null을 허용**
-
----
-
-## **📌 ArrayDeque vs LinkedList 비교표**
-| 비교 항목 | ArrayDeque (배열 기반) | LinkedList (연결 리스트 기반) |
-|------------|---------------------|---------------------|
-| **내부 구현** | 동적 배열 (Array) | 이중 연결 리스트 (Doubly Linked List) |
-| **메모리 사용량** | **적음** (배열만 사용) | **많음** (각 노드가 추가 메모리 사용) |
-| **임의 접근 속도** | **O(1)** (빠름) | **O(N)** (느림) |
-| **앞/뒤 추가** | **O(1)** | **O(1)** |
-| **앞/뒤 삭제** | **O(1)** | **O(1)** |
-| **중간 삽입/삭제** | **O(N)** (배열 이동 필요) | **O(1)~O(N)** (노드 탐색 필요) |
-| **캐시 효율** | **좋음** (배열 구조) | **나쁨** (포인터 참조로 인해 캐시 비효율) |
-| **null 허용 여부** | ❌ 허용 안됨 | ✅ 허용 |
-| **빠른 탐색이 필요한 경우** | ✅ **추천** | ❌ |
-| **삽입/삭제가 자주 발생하는 경우** | ❌ | ✅ **추천** |
-
----
-
-## **📌 ArrayDeque와 LinkedList, 언제 선택할까?**
-✅ **큐(Queue)와 덱(Deque)으로 사용하려면?**  
-➡ **⚡ ArrayDeque이 최고의 선택!** (LinkedList보다 빠름)  
-
-✅ **빠른 탐색이 필요하다면?**  
-➡ **🔥 ArrayDeque 사용!** (O(1) 랜덤 접근 가능)  
-
-✅ **중간 삽입/삭제가 많다면?**  
-➡ **🔄 LinkedList가 유리!** (O(1) 삽입/삭제)  
-
-✅ **대량 데이터 처리 시, 메모리를 절약하고 싶다면?**  
-➡ **💾 ArrayDeque 추천!** (LinkedList는 추가 메모리 사용)  
-
----
-## **📌 BFS (너비 우선 탐색, Breadth-First Search)**
-> **BFS는 큐를 활용하여 "가까운 노드부터 탐색"하는 방식**
-
-### **📌 BFS의 특징**
-✔ **한 번 방문한 노드를 다시 방문하지 않도록 관리해야 함**  
-✔ **큐를 사용하여 탐색을 순차적으로 진행함**  
-✔ **그래프 탐색, 최단 경로 탐색 등에 활용됨**  
-
----
-
-## **📌 BFS 예제 (기본 구현)**
-```java
-import java.util.Queue;
-import java.util.LinkedList;
-
-public class BFSExample {
-    public static void main(String[] args) {
-        int nodeCount = 10; 
-        boolean[] visited = new boolean[nodeCount + 1]; // 방문 여부 체크
-
-        Queue<Integer> queue = new LinkedList<>();
-        queue.offer(1); // 첫 노드 추가 (시작점)
-        visited[1] = true; // 시작 노드를 방문 처리
-
-        while (!queue.isEmpty()) { // 큐가 빌 때까지 반복
-            int current = queue.poll(); // 큐에서 현재 노드 가져오기
-            System.out.println("방문 노드: " + current);
-
-            // 예제: current + 1, current + 2 노드를 방문하는 방식
-            for (int next : new int[]{current + 1, current + 2}) {
-                if (next <= nodeCount && !visited[next]) { // 유효한 노드인지 확인
-                    queue.offer(next);
-                    visited[next] = true; // 방문 처리
+public class BubbleSort {
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
     }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 2, 5, 8, 1};
+        bubbleSort(arr);
+        System.out.println(Arrays.toString(arr)); // [1, 2, 3, 5, 8]
+    }
 }
 ```
 
-**✅ 실행 결과**
+---
+
+## **2. 선택 정렬 (Selection Sort)**
+- **배열에서 가장 작은 값을 선택하여 앞에서부터 정렬**
+- **시간 복잡도:** O(N²)
+- **장점:** 추가적인 메모리 사용 없음 (제자리 정렬, In-Place Sort)
+- **단점:** 느림, N²의 시간 복잡도로 인해 큰 배열에 비효율적
+
+#### 📌 **선택 정렬 과정 예시**
 ```
-방문 노드: 1
-방문 노드: 2
-방문 노드: 3
-방문 노드: 4
-방문 노드: 5
-방문 노드: 6
-방문 노드: 7
-방문 노드: 8
-방문 노드: 9
-방문 노드: 10
+입력: 3 → 2 → 5 → 8 → 1
+과정:
+1. [3, 2, 5, 8, 1] → 가장 작은 값 1을 선택 → [1, 2, 5, 8, 3]
+2. [1, 2, 5, 8, 3] → 가장 작은 값 2는 이미 정렬됨
+3. [1, 2, 5, 8, 3] → 가장 작은 값 3을 선택 → [1, 2, 3, 8, 5]
+4. [1, 2, 3, 8, 5] → 가장 작은 값 5를 선택 → [1, 2, 3, 5, 8]
+결과: 1 → 2 → 3 → 5 → 8
 ```
+
+#### 📌 **선택 정렬 Java 코드**
+```java
+import java.util.Arrays;
+
+public class SelectionSort {
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 2, 5, 8, 1};
+        selectionSort(arr);
+        System.out.println(Arrays.toString(arr)); // [1, 2, 3, 5, 8]
+    }
+}
+```
+
+---
+
+## **3. 퀵 정렬 (Quick Sort)**
+- **피벗(Pivot)을 기준으로 작은 값과 큰 값을 나누어 정렬하는 알고리즘**
+- **시간 복잡도:** 평균 O(N log N), 최악 O(N²)
+- **장점:** 매우 빠름, 추가적인 메모리 사용이 적음 (제자리 정렬, In-Place Sort)
+- **단점:** 불안정한 정렬, 최악의 경우 느림 (이미 정렬된 배열에서 성능 저하)
+
+#### 📌 **퀵 정렬 과정 예시**
+```
+입력: 3 → 2 → 5 → 8 → 1
+과정:
+1. 피벗: 5, [3, 2, 1] | 5 | [8]
+2. 피벗: 2, [1] | 2 | [3]
+3. 정렬 완료 → [1, 2, 3, 5, 8]
+결과: 1 → 2 → 3 → 5 → 8
+```
+
+#### 📌 **퀵 정렬 Java 코드**
+```java
+import java.util.Arrays;
+
+public class QuickSort {
+    public static void quickSort(int[] arr, int left, int right) {
+        if (left >= right) return;
+
+        int pivot = partition(arr, left, right);
+        quickSort(arr, left, pivot - 1);
+        quickSort(arr, pivot + 1, right);
+    }
+
+    public static int partition(int[] arr, int left, int right) {
+        int pivot = arr[right];
+        int i = left - 1;
+
+        for (int j = left; j < right; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[right];
+        arr[right] = temp;
+        return i + 1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 2, 5, 8, 1};
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr)); // [1, 2, 3, 5, 8]
+    }
+}
+```
+
+---
+## **4. 병합 정렬 (Merge Sort)**
+- **배열을 반으로 나누고 정렬된 상태로 합병하는 정렬 알고리즘**  
+- **시간 복잡도: O(N log N) (최악, 평균, 최선 모두 동일)**  
+- **장점:** 안정적인 정렬(Stable Sort), 최악의 경우에도 O(N log N) 보장  
+- **단점:** 추가 메모리 사용 (공간 복잡도 O(N))  
+
+---
+
+### **📌 병합 정렬의 동작 방식**
+1. **배열을 반으로 나눈다** (Divide).
+2. 각각을 재귀적으로 정렬 (Conquer).
+3. 두 개의 정렬된 배열을 병합 (Merge).
+4. 모든 원소가 합쳐질 때까지 반복.
+
+---
+
+### **📌 병합 정렬의 과정 예시**  
+입력: `[3, 2, 5, 8, 1]`
+
+1. **분할 (Divide)**
+   ```
+   [3, 2, 5, 8, 1] → [3, 2] | [5, 8, 1]
+   [3, 2] → [3] | [2]
+   [5, 8, 1] → [5] | [8, 1]
+   [8, 1] → [8] | [1]
+   ```
+2. **정렬 후 병합 (Merge)**
+   ```
+   [3] + [2] → [2, 3]
+   [8] + [1] → [1, 8]
+   [5] + [1, 8] → [1, 5, 8]
+   [2, 3] + [1, 5, 8] → [1, 2, 3, 5, 8]
+   ```
+결과: `[1, 2, 3, 5, 8]` (오름차순 정렬 완료)
+
+---
+
+### **📌 병합 정렬 Java 코드**
+```java
+import java.util.Arrays;
+
+public class MergeSort {
+    public static void mergeSort(int[] arr, int left, int right) {
+        if (left >= right) return;
+
+        int mid = left + (right - left) / 2;
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+        merge(arr, left, mid, right);
+    }
+
+    public static void merge(int[] arr, int left, int mid, int right) {
+        int[] temp = new int[right - left + 1];
+        int i = left, j = mid + 1, k = 0;
+
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) temp[k++] = arr[i++];
+            else temp[k++] = arr[j++];
+        }
+
+        while (i <= mid) temp[k++] = arr[i++];
+        while (j <= right) temp[k++] = arr[j++];
+
+        for (i = left, k = 0; i <= right; i++, k++) arr[i] = temp[k];
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 2, 5, 8, 1};
+        mergeSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr)); // [1, 2, 3, 5, 8]
+    }
+}
+```
+
+---
+
+### **📌 병합 정렬의 특징**
+|  | **병합 정렬 (Merge Sort)** |
+|-------------|--------------------|
+| **시간 복잡도** | O(N log N) (최악, 평균, 최선 동일) |
+| **공간 복잡도** | O(N) (추가 배열 필요) |
+| **정렬 안정성** | ✅ 안정 정렬 (Stable Sort) |
+| **장점** | 데이터의 크기에 관계없이 O(N log N) 보장 |
+| **단점** | 추가적인 배열 메모리 필요 |
+
+---
+
+### **📌 퀵 정렬 vs 병합 정렬 비교**
+|  | **퀵 정렬 (Quick Sort)** | **병합 정렬 (Merge Sort)** |
+|-------------|-----------------|-----------------|
+| **시간 복잡도** | 평균 O(N log N), 최악 O(N²) | O(N log N) (항상 동일) |
+| **공간 복잡도** | O(log N) (재귀 호출 스택) | O(N) (추가 메모리 필요) |
+| **정렬 안정성** | ❌ 불안정 정렬 | ✅ 안정 정렬 |
+| **데이터 특성** | 데이터가 랜덤하게 분포되어 있을 때 유리 | 큰 데이터 정렬 시 안정적 |
+
+---
+
+### **🔥 정리**
+✔ **병합 정렬은 안정적인 정렬이 필요할 때 사용**  
+✔ **O(N log N) 보장되지만, 추가 메모리를 사용함**  
+✔ **퀵 정렬이 평균적으로 빠르지만, 최악의 경우 병합 정렬이 더 유리함**  
+다음은 **작성 양식을 통일하여 정리한 "정렬 & 이분 탐색" 문서**입니다.  
+병합 정렬과 퀵 정렬을 포함한 모든 정렬 알고리즘의 설명을 **일관된 스타일**로 정리하였으며,  
+각 정렬의 **시간 복잡도, 과정 예시, Java 코드**까지 포맷을 맞췄습니다.  
+
+---
+
+## **정렬 알고리즘 비교**
+| 정렬 알고리즘 | 평균 시간 복잡도 | 최악 시간 복잡도 | 공간 복잡도 | 특징 |
+|--------------|---------------|---------------|---------------|--------|
+| **버블 정렬 (Bubble Sort)** | O(N²) | O(N²) | O(1) | 느리지만 구현이 쉬움 |
+| **선택 정렬 (Selection Sort)** | O(N²) | O(N²) | O(1) | 최소값을 선택하여 정렬 |
+| **삽입 정렬 (Insertion Sort)** | O(N²) | O(N²) | O(1) | 거의 정렬된 배열에 유리 |
+| **퀵 정렬 (Quick Sort)** | O(N log N) | O(N²) | O(log N) | 피벗을 기준으로 분할 정렬 |
+| **병합 정렬 (Merge Sort)** | O(N log N) | O(N log N) | O(N) | 안정 정렬, 추가 메모리 사용 |
+
+---
+다음은 **이분 탐색(Binary Search)**에 대한 내용을 기존 정렬 알고리즘과 동일한 스타일로 정리한 초안입니다.  
+
+---
+
+## **이분 탐색 (Binary Search)**
+
+### **1. 이분 탐색이란?**
+- **정렬된 배열에서 원하는 값을 빠르게 찾는 탐색 알고리즘**
+- **탐색 범위를 절반씩 줄여가며 찾기 때문에 O(log N)의 시간 복잡도를 가짐**
+- **순차 탐색(Linear Search, O(N))보다 훨씬 빠름**
+- **탐색 대상이 반드시 **오름차순 또는 내림차순으로 정렬되어 있어야 함**
+
+---
+
+### **2. 이분 탐색의 동작 원리**
+
+- 이분 탐색은 반드시 "정렬된 배열"에서만 사용 가능!
+
+- 탐색 범위를 절반씩 줄여 O(log N)의 빠른 탐색 속도를 제공!
+---
+- **2-1. 동작 순서**
+1. **배열이 정렬되어 있어야 한다.** 
+2. **탐색 범위의 중간 값을 찾는다.**
+3. **중간 값이 찾고자 하는 값과 같다면 탐색 종료.**
+4. **중간 값이 찾고자 하는 값보다 크다면 왼쪽 범위를 탐색.**
+5. **중간 값이 찾고자 하는 값보다 작다면 오른쪽 범위를 탐색.**
+6. **탐색 범위를 계속 절반씩 줄여가며 반복.**
+7. **값을 찾으면 해당 인덱스를 반환, 찾을 수 없으면 -1 반환.**
+
+---
+
+### **3. 이분 탐색의 과정 예시**
+```
+입력: 정렬된 배열 [1, 2, 3, 5, 8], 찾는 값: 3
+과정:
+1. 중간값(mid) 찾기 → [1, 2, 3, 5, 8], mid = 3
+2. 찾는 값 3이 mid 값과 같음 → 탐색 종료
+결과: 인덱스 2에서 3을 찾음
+```
+
+```
+입력: 정렬된 배열 [1, 2, 3, 5, 8], 찾는 값: 6
+과정:
+1. 중간값(mid) 찾기 → [1, 2, 3, 5, 8], mid = 3
+2. 찾는 값 6 > mid 값 3 → 오른쪽 탐색 [5, 8]
+3. 중간값(mid) 찾기 → [5, 8], mid = 5
+4. 찾는 값 6 > mid 값 5 → 오른쪽 탐색 [8]
+5. 중간값(mid) 찾기 → [8], mid = 8
+6. 찾는 값 6 < mid 값 8 → 왼쪽 탐색 (없음) → 탐색 종료
+결과: 찾는 값 6이 존재하지 않음 (-1 반환)
+```
+
+---
+
+### **4. 이분 탐색의 구현 (반복문 방식 - Iterative)**
+```java
+public class BinarySearch {
+    public static int binarySearch(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (arr[mid] == target) return mid; // 찾았을 경우 인덱스 반환
+            else if (arr[mid] < target) left = mid + 1; // 오른쪽 탐색
+            else right = mid - 1; // 왼쪽 탐색
+        }
+
+        return -1; // 찾지 못한 경우
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 5, 8};
+        int target = 3;
+        int result = binarySearch(arr, target);
+
+        if (result != -1) System.out.println("찾은 위치: " + result);
+        else System.out.println("값을 찾을 수 없음");
+    }
+}
+```
+
+---
+
+### **5. 이분 탐색의 구현 (재귀 방식 - Recursive)**
+```java
+public class RecursiveBinarySearch {
+    public static int binarySearch(int[] arr, int left, int right, int target) {
+        if (left > right) return -1; // 종료 조건
+
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == target) return mid; // 값을 찾은 경우
+        else if (arr[mid] < target) return binarySearch(arr, mid + 1, right, target); // 오른쪽 탐색
+        else return binarySearch(arr, left, mid - 1, target); // 왼쪽 탐색
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 5, 8};
+        int target = 5;
+        int result = binarySearch(arr, 0, arr.length - 1, target);
+
+        if (result != -1) System.out.println("찾은 위치: " + result);
+        else System.out.println("값을 찾을 수 없음");
+    }
+}
+```
+
+---
+
+### **6. 이분 탐색의 특징**
+|  | **이분 탐색 (Binary Search)** |
+|-------------|--------------------|
+| **시간 복잡도** | O(log N) |
+| **공간 복잡도** | O(1) (반복문) / O(log N) (재귀) |
+| **탐색 안정성** | ✅ 항상 O(log N) 보장 |
+| **장점** | 매우 빠른 탐색 속도, 대량의 데이터에서 유리 |
+| **단점** | **정렬된 배열에서만 사용 가능** |
+
+---
+
+### **7. 이분 탐색 vs 선형 탐색 비교**
+|  | **이분 탐색 (Binary Search)** | **순차 탐색 (Linear Search)** |
+|-------------|-----------------|-----------------|
+| **시간 복잡도** | O(log N) | O(N) |
+| **공간 복잡도** | O(1) (반복문) / O(log N) (재귀) | O(1) |
+| **정렬 필요 여부** | ✅ 필요 | ❌ 필요 없음 |
+| **적용 데이터** | 정렬된 데이터 | 정렬되지 않은 데이터 |
+| **탐색 속도** | 매우 빠름 (N이 클수록 유리) | 느림 (N이 클수록 불리) |
+
+---
+
+### **🔥 정리**
+✔ **이분 탐색은 정렬된 배열에서만 사용 가능**  
+✔ **탐색 범위를 절반씩 줄이므로 O(log N)으로 매우 빠름**  
+✔ **반복문과 재귀 방식으로 구현 가능**  
+✔ **O(N)의 순차 탐색보다 훨씬 효율적이며, 특히 큰 데이터에서 성능 차이가 큼**  
+
 ---
