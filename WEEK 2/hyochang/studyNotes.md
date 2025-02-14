@@ -431,7 +431,7 @@ public class BinarySearch {
 				return mid;
 			} else if(key < arr[mid]) {
 				return binarySearch1(key ,low, mid-1); // 왼쪽 부분 탐색 
-			} else {
+			} else {gigggg
 				return binarySearch1(key, mid+1, high); // 오른쪽 부분 탐색 
 			}
 		}
@@ -456,7 +456,8 @@ public class BinarySearch {
 		}
 		
 		return -1; // 탐색 실패 
-	}
+	}//1234
+	
 
 }
 ```
