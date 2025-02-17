@@ -36,4 +36,7 @@
 
  ### 📂 응용 문제
 
-- *추후 업데이트*
+- 실버3 | [먹을 것인가 먹힐 것인가](https://www.acmicpc.net/problem/7795)
+- 실버3 | [꿀 아르바이트](https://www.acmicpc.net/problem/12847)
+- 실버2 | [DNA 비밀번호](https://www.acmicpc.net/problem/12891)
+- 골드5 | [용액 합성하기](https://www.acmicpc.net/problem/14921)
