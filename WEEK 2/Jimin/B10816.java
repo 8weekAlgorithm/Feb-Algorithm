@@ -2,6 +2,8 @@
 // 링크: https://www.acmicpc.net/problem/10816
 // 시간: 1016 ms 메모리: 175576 kb
 
+package Week2;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
