@@ -27,11 +27,9 @@
 - **PART 1** : 금토일
   + 개념 공부 후 마크다운 문서로 정리
   + 개념 이해를 위한 기본 문제 풀이
-  + 일요일 23:59까지 PR
 
 - **PART 2** : 월화수
   + 제공된 문제 중 2문제 풀이
-  + 수요일 22:00까지 PR
 
 - **PART 3** : 목
   + 오프라인 코드 리뷰
@@ -41,13 +39,13 @@
 ### 📍 Convention Rule
 - **Commit Message**
 
-  + `[Wn / PART n] 자유기술`
-  + ex) [W2 / PART 2] 0000 문제 풀이
+  + `[Wn] 자유기술`
+  + ex) [W2] 0000 문제 풀이
 
 - **Pull Request**
 
-  + `Wn / PART n / 이름`
-  + ex) W3 / PART 2 / 홍길동
+  + `Wn / 이름`
+  + ex) W3 / 홍길동
 
 <br/>
 
@@ -78,7 +76,7 @@ git checkout <branch name>
 5. 스터디 후 변경 사항이 생기면, 개인 저장소에 commit 및 push한다.
 ```
 git add .
-git commit -m "[Wn / PART n] 자유기술"
+git commit -m "[Wn] 자유기술"
 git push origin <branch name>
 ```
 6. push 후 본인의 저장소 페이지로 돌아오면 `Pull Request` 버튼이 활성화된다. 해당 버튼을 클릭해 PR을 진행한다. 
