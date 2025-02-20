@@ -1,0 +1,43 @@
+// 문제: 백준 29700 우당탕탕 영화예매
+// 링크: https://www.acmicpc.net/problem/29700
+// 시간: 344ms
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringBuilder sb = new StringBuilder();
+		
+		//세로줄 개수 N
+		int N = Integer.parseInt(st.nextToken());
+		//가로줄 개수 M
+		int M = Integer.parseInt(st.nextToken());
+		//동아리원 수 K
+		int K = Integer.parseInt(st.nextToken());
+		
+		int res = 0;
+		for(int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine());
+			String str = st.nextToken();
+			//0 개수
+			int cnt = 0;
+			for(int j = 0; j < M; j++) {
+				if(str.charAt(j) == '0') {
+					cnt++;
+				}else {
+					cnt = 0;
+				}
+				
+				if(cnt >= K) {
+					res++;
+				}
+			}
+		}
+		System.out.println(res);
+	}
+}
