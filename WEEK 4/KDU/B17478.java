@@ -1,6 +1,7 @@
 // 문제: 백준 17478번 재귀함수가 뭔가요?
 // 링크: https://www.acmicpc.net/problem/17478
 // 시간: 116ms
+
 import java.io.*;
 
 public class B17478 {
