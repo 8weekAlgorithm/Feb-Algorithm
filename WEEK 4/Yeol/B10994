@@ -1,0 +1,64 @@
+// 문제: 백준 10994번 별 찍기 - 19
+// 링크: https://www.acmicpc.net/problem/10994
+// 시간: 136ms
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class Main {
+	static char[][] stars;
+	
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int N = Integer.parseInt(br.readLine()); //N 입력
+		
+		int len = 4*N-3; //행과 열의 길이
+		
+		stars = new char[len][len]; //2차원 배열 생성
+		
+		//배열을 공백으로 초기화
+		for(int i = 0; i < len; i++) {
+			Arrays.fill(stars[i], ' ');
+		}
+		
+		//재귀함수 호출
+		drawStars(N, 0);
+		
+		//결과 출력
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0; i < len; i++) {
+			sb.append(stars[i]).append("\n");
+		}
+		System.out.println(sb);
+		
+	}
+	
+	//n : 현재 패턴의 레벨, offset : 현재 패턴이 시작되는 위치
+	static void drawStars(int n, int offset) {
+		//n이 1이면 한 개의 별만 찍는다
+		if(n == 1) {
+			stars[offset][offset] = '*';
+			return;
+		}
+		
+		int len = 4*n-3; //현재 레벨의 행과 열의 길이
+		int last = offset + len -1; //행과 열의 마지막 인덱스
+		
+		//왼쪽과 아래쪽 테두리
+		for(int i = offset; i <= last; i++) {
+			stars[i][offset] = '*';
+			stars[i][last] = '*';
+		}
+		
+		//위쪽과 아래쪽 테두리
+		for(int j = offset; j <= last; j++) {
+			stars[offset][j] = '*';
+			stars[last][j] = '*';
+		}
+		
+		drawStars(n - 1, offset + 2);
+	}
+}
